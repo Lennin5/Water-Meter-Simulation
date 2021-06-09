@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logged</title>
+    <link rel="icon" href="./img/wm-simulator.ico">
+    <!-- Materialize CDN -->
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+</head>
+
+<body>
+
+<nav class="teal">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Water Meter Simulation</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <!-- <li><a href="#">Sass</a></li>
+        <li><a href="#">Components</a></li> -->
+        <li><a onclick="Logout()">Cerrar Sesión</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="row">
+
+    <div class="col s12 m6 l3">      
+      <div class="card">
+        <div class="card-image">
+          <center>
+          <img src="img/sensor-green.png">
+        </center>          
+        </div>
+        <div class="card-content">
+          <p>Hola</p>
+        </div>
+      </div>     
+    </div>
+    <div class="col s12 m6 l3">      
+      <div class="card">
+        <div class="card-image">
+          <center>
+          <img src="img/sensor-blue.png">
+        </center>          
+        </div>
+        <div class="card-content">
+          <p>Hola</p>
+        </div>
+      </div>     
+    </div>
+    <div class="col s12 m6 l3">      
+      <div class="card">
+        <div class="card-image">
+          <center>
+          <img src="img/sensor-red.png">
+        </center>          
+        </div>
+        <div class="card-content">
+          <p>Hola</p>
+        </div>
+      </div>     
+    </div>
+    <div class="col s12 m6 l3">      
+      <div class="card">
+        <div class="card-image">
+          <center>
+          <img src="img/sensor-yellow.png">
+        </center>          
+        </div>
+        <div class="card-content">
+          <p>Hola</p>
+        </div>
+      </div>     
+    </div>
+        
+   
+  </div>  
+
+<script>
+    window.onload=function(){
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+        apiKey: "AIzaSyCRGshne368uORhEgoF48_V4dOrq8xfdwk",
+        authDomain: "watermeter-fd8ec.firebaseapp.com",
+        databaseURL: "https://watermeter-fd8ec.firebaseio.com",
+        projectId: "watermeter-fd8ec",
+        storageBucket: "watermeter-fd8ec.appspot.com",
+        messagingSenderId: "392890094677",
+        appId: "1:392890094677:web:57c01b865369a59775f0dc"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    var displayName = user.displayName;
+    var email = user.email;
+    var emailVerified = user.emailVerified;
+    var photoURL = user.photoURL;
+    var isAnonymous = user.isAnonymous;
+    var uid = user.uid;
+    var providerData = user.providerData;
+
+    console.log(user);
+  } else {  
+    window.location.href="./not-logged.html";     
+  }
+  });    
+    }
+</script>      
+<script src="js/app.js"></script>
+<script src="js/logged.js"></script>
+<!-- Materialize -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="js/init.js"></script>
+</body>
+
+</html>

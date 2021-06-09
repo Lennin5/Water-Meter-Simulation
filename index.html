@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>Water Meter Simulation</title>    
+  <link rel="icon" href="./img/wm-simulator.ico">
+  <!-- Materialize CDN -->
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- firebase CDN -->  
+  <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+</head>
+<body>  
+  <div class="div-preloader">
+    <div>
+    <section>
+      <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-teal-only">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>          
+        </div>              
+      </div>         
+    </section>    
+    <section>
+      <br>
+      <span>Cargando...</span>
+    </section>
+  </div>
+  </div>
+<script>
+  window.onload=function(){
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+    apiKey: "AIzaSyCRGshne368uORhEgoF48_V4dOrq8xfdwk",
+    authDomain: "watermeter-fd8ec.firebaseapp.com",
+    databaseURL: "https://watermeter-fd8ec.firebaseio.com",
+    projectId: "watermeter-fd8ec",
+    storageBucket: "watermeter-fd8ec.appspot.com",
+    messagingSenderId: "392890094677",
+    appId: "1:392890094677:web:57c01b865369a59775f0dc"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // setTimeout(AutoLogin, 2000);
+      // function AutoLogin(){
+        window.location.href="./logged.html";
+      // }                
+    } else {
+      // setTimeout(AutoNoLogin, 2000);   
+      // function AutoNoLogin(){
+        window.location.href="./not-logged.html";     
+      // }               
+    }
+  });
+
+}
+</script>   
+</body>
+</html> 
