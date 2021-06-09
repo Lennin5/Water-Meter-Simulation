@@ -49,15 +49,15 @@
 
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      // setTimeout(AutoLogin, 2000);
-      // function AutoLogin(){
+      setTimeout(AutoLogin, 2000);
+      function AutoLogin(){
         window.location.href="./logged.html";
-      // }                
+      }                
     } else {
-      // setTimeout(AutoNoLogin, 2000);   
-      // function AutoNoLogin(){
+      setTimeout(AutoNoLogin, 2000);   
+      function AutoNoLogin(){
         window.location.href="./not-logged.html";     
-      // }               
+      }               
     }
   });
 
