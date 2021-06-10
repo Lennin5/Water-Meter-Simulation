@@ -28,54 +28,98 @@
       </ul>
     </div>
   </nav>
-
+<br>
   <div class="row">
 
     <div class="col s12 m6 l3">      
       <div class="card">
-        <div class="card-image">
-          <center>
+        <div class="container-badge">
+          <section>
+            <span class="water-badge badge green accent-3">Sensor 01</span>
+          </section>
+        </div>        
+        <div class="card-image">          
+          <center>            
           <img src="img/sensor-green.png">
         </center>          
-        </div>
-        <div class="card-content">
-          <p>Hola</p>
+        </div>        
+        <div class="card-content">   
+          <div class="card-action">
+            <center>
+              <b id="countdown-green"></b><br><br>              
+              <a class="waves-effect waves-light btn green accent-3 water-btn">
+                <i class="material-icons right">cloud</i>SEND DATA</a>
+            </center> 
+          </div>                                
         </div>
       </div>     
     </div>
     <div class="col s12 m6 l3">      
       <div class="card">
+        <div class="container-badge">
+          <section>
+            <span class="water-badge badge blue accent-2">Sensor 02</span>
+          </section>
+        </div>                
         <div class="card-image">
           <center>
           <img src="img/sensor-blue.png">
         </center>          
         </div>
         <div class="card-content">
-          <p>Hola</p>
+          <div class="card-action">
+            <center>
+              <b id="countdown-blue"></b><br><br>              
+              <a class="waves-effect waves-light btn blue accent-2 water-btn">
+                <i class="material-icons right">cloud</i>SEND DATA</a>
+            </center> 
+          </div>           
         </div>
       </div>     
     </div>
     <div class="col s12 m6 l3">      
       <div class="card">
+        <div class="container-badge">
+          <section>
+            <span class="water-badge badge red accent-2">Sensor 03</span>
+          </section>
+        </div>                
         <div class="card-image">
           <center>
           <img src="img/sensor-red.png">
         </center>          
         </div>
         <div class="card-content">
-          <p>Hola</p>
+          <div class="card-action">
+            <center>
+              <b id="countdown-red"></b><br><br>              
+              <a class="waves-effect waves-light btn red accent-2 water-btn">
+                <i class="material-icons right">cloud</i>SEND DATA</a>
+            </center> 
+          </div>           
         </div>
       </div>     
     </div>
     <div class="col s12 m6 l3">      
       <div class="card">
+        <div class="container-badge">
+          <section>
+            <span class="water-badge badge yellow darken-1">Sensor 04</span>
+          </section>
+        </div>                
         <div class="card-image">
           <center>
           <img src="img/sensor-yellow.png">
         </center>          
         </div>
         <div class="card-content">
-          <p>Hola</p>
+          <div class="card-action">
+            <center>
+              <b id="countdown-yellow"></b><br><br>              
+              <a class="waves-effect waves-light btn yellow darken-1 water-btn">
+                <i class="material-icons right">cloud</i>SEND DATA</a>
+            </center> 
+          </div>          
         </div>
       </div>     
     </div>
@@ -110,7 +154,7 @@
 
     console.log(user);
   } else {  
-    window.location.href="./not-logged.html";     
+    window.location.href="./index.html";     
   }
   });    
     }
