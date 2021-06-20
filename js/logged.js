@@ -112,8 +112,7 @@ async function SendDataSensor01(){
     }).catch(error =>{
       // console.log(error); // ERROR DISABLED XD
     });    
-    
-      // Set data of day of consumption
+
       await db.collection(uid).doc("Water_Consumption_Data").collection("Days").doc(dayMonthYearString).set({
         Day: day,
         Day_Of_Week_In_Letter: dayOfWeekInLetter,
