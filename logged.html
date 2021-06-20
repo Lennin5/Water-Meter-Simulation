@@ -15,21 +15,37 @@
     <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
 </head>
 
 <body>
 
-<nav class="teal">
+
+
+
+<div class="nabvar-fixed">
+  <nav class="nav-extended teal">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Water Meter Simulation</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <!-- <li><a href="#">Sass</a></li>
-        <li><a href="#">Components</a></li> -->
-        <li><a onclick="Logout()">Cerrar Sesión</a></li>
+      <a href="#!" class="brand-logo" style="margin-left: 5px;">Water Meter System</a>
+      <ul class="right hide-on-med-and-down">        
+        <li><a href="./logged.html" style="background-color: #00796b;"><i class="material-icons right">settings_remote</i>Sensors Simulation</a></li>
+        <li><a href="./test-realtime.html"><i class="material-icons right">dns</i>Test RealTime DB</a></li>
+        <li><a href="./test-firestore.html"><i class="material-icons right">expand_less</i>Test Firestore DB</a></li>
+        <li><a href="./comments.html"><i class="material-icons right">comments</i>Comments</a></li>        
+        <li><a href="#" onclick="Logout()"><i class="material-icons right">logout</i>Close Session</a></li>
       </ul>
     </div>
-  </nav>
+    <div class="nav-content" style="padding-bottom: 10px;">
+      <!-- <span style="margin-left: 5px;">Sensor Simulation</span>       -->
+      <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal lighten-1" href="./logged.html" title="Refresh">
+        <i class="material-icons">refresh</i>
+      </a>
+    </div>
+  </nav>  
+</div>  
+
 <br>
+
   <div class="row">
 
     <div class="col s12 m6 l3">      
@@ -177,7 +193,7 @@
     }
 </script>      
 <script src="js/app.js"></script>
-<script src="js/logged.js"></script>
+<script src="js/logged2.js"></script>
 <!-- Materialize -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="js/init.js"></script>
