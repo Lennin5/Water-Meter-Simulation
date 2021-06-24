@@ -7,7 +7,7 @@ function SetData(){
       username: username,
       email: email,    
     }).then(response=>{      
-      console.log("document writed!");               
+      console.log("document writed in realtime database!");               
     }).catch(error =>{
       console.log(error);
     });   
@@ -26,14 +26,15 @@ function ClearUniqueData(){
 
 function GetDataInTable(){
     // OBTENER UN ARRAY DE UN OBJETO Y PINTARLO EN UNA TABLA - DB REAL TIME
-    var starCountRef = firebase.database().ref('users/');
-    starCountRef.on('value', (snapshot) => {
+    firebase.database().ref('users/')
+    .on('value', (snapshot) => {
       var data = snapshot.val();
-      console.log(data);
+      // console.log(data);
       var contenido ="<div class='container'>"         
           contenido +="<table class='striped responsive-table'>"
           contenido +="<thead>"
             contenido +="<tr>"
+              contenido +="<th>Uid</th>"
                 contenido +="<th>Username</th>"
                 contenido +="<th>Email</th>"
             contenido +="</tr>"
@@ -41,6 +42,7 @@ function GetDataInTable(){
           contenido +="<tbody>"            
               for (let [key, value] of Object.entries(data)) {
                   contenido +="<tr>"      
+                  contenido +="<td>"+data.id+"</td>"
                     contenido +="<td>"+value.username+"</td>"
                     contenido +="<td>"+value.email+"</td>"
                   contenido +="</tr>"
@@ -57,8 +59,8 @@ function ClearDataInTable(){
 
 function GetDataInCards(){    
     // OBTENER UN ARRAY DE UN OBJETO Y PINTARLO EN CARDS RESPONSIVAS - DB REAL TIME
-    var starCountRef = firebase.database().ref('users/');
-    starCountRef.on('value', (snapshot) => {
+    firebase.database().ref('users/')
+    .on('value', (snapshot) => {
       var data = snapshot.val();
       console.log(data);
       var contenido ="<div class='row'>"         

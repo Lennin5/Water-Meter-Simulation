@@ -18,43 +18,189 @@
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
 </head>
 
-<body>
+<body bgcolor="#f6f7f9">
 
-<!-- Dropdown Structure -->
-<ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">one</a></li>
-  <li><a href="#!">two</a></li>
-  <li class="divider"></li>
-  <li><a href="#!">three</a></li>
-</ul>
-<nav class="teal">
+
+<div class="nabvar-fixed">
+  <nav class="nav-extended teal">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Test Firestore DB</a>      
-      <ul id="nav-mobile" class="right hide-on-med-and-down">        
-        <!-- <li><a href="#">Sass</a></li>
-        <li><a href="#">Components</a></li> -->
-        <li><a href="./logged.html"><i class="material-icons right">refresh</i>Refresh</a></li>
+      <a href="#!" class="brand-logo" style="margin-left: 5px;">Water Meter System</a>
+      <ul class="right hide-on-med-and-down">        
         <li><a href="./logged.html"><i class="material-icons right">settings_remote</i>Sensors Simulation</a></li>
         <li><a href="./test-realtime.html"><i class="material-icons right">dns</i>Test RealTime DB</a></li>
-        <li><a href="./test-firestore.html"><i class="material-icons right">storage</i>Test Firestore DB</a></li>
+        <li><a href="./test-firestore.html" style="background-color: #00796b;"><i class="material-icons right">expand_less</i>Test Firestore DB</a></li>
         <li><a href="./comments.html"><i class="material-icons right">comments</i>Comments</a></li>        
         <li><a href="#" onclick="Logout()"><i class="material-icons right">logout</i>Close Session</a></li>
-        <!-- <li><a href="badges.html" ><i class="material-icons right">logout</i>Close Session</a></li> -->
       </ul>
     </div>
-  </nav>
+    <div class="nav-content" style="padding-bottom: 10px;">        
+      <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal lighten-1" href="./test-firestore.html" title="Refresh">
+        <i class="material-icons">refresh</i>
+      </a>
+    </div>
+  </nav>  
+</div>  
+
 <br>
 
-<button onclick="SetData()">SET DATA!</button>
+<section class="container">
+    <center>
+        <img src="./img/firestore.png" alt="FirestoreDatabaseImageHome" width="40%" style="object-fit: contain;">
+    </center>    
+</section>
+
 <br><br>
-<button onclick="GetDataDBRealTime()">GET DATA!</button>
 
-<p id="monthLitersConsumed">Hello!</p>
+<div class="row">        
+    <section class="col s12 m6 l6">
+        <center>
+            <img src="./img/firestore-db/set.png" alt="SetData" width="80%">
+        </center>        
+    </section>
+    <section class="col s12 m6 l6">
+        <h5>Set Data</h5>
+        <code>The variables and programming is in the project, <br>        
+        Review test-firestore.js in the main code <br>        
+        Reference: <b>SetData(), line 1</b></code> <br>
+        <blockquote>
+            Note: SET require an uid like identify 
+        </blockquote>
+        
+        <a class="waves-effect waves-light btn" onclick="SetData()"><i class="material-icons right">send</i>SEND DATA</a>
+    </section>
+</div>
+
 <br><br>
 
-    <div id="divTable"></div>
- 
+<div class="row">        
+  <section class="col s12 m6 l6">
+      <center>
+          <img src="./img/firestore-db/add.png" alt="SetData" width="80%">
+      </center>        
+  </section>
+  <section class="col s12 m6 l6">
+      <h5>Add Data</h5>
+      <code>The variables and programming is in the project, <br>        
+      Review test-firestore.js in the main code <br>        
+      Reference: <b>AddData(), line 16</b></code> <br>
+      <blockquote>
+          Note: ADD not require an uid because this is generate automatically
+      </blockquote>
+      
+      <a class="waves-effect waves-light btn" onclick="AddData()"><i class="material-icons right">send</i>SEND DATA</a>
+  </section>
+</div>
 
+<br><br>
+
+<div class="row">        
+  <section class="col s12 m6 l6">
+      <center>
+          <img src="./img/firestore-db/update.png" alt="SetData" width="80%">
+      </center>        
+  </section>
+  <section class="col s12 m6 l6">
+      <h5>Update Data</h5>
+      <code>The variables and programming is in the project, <br>        
+      Review test-firestore.js in the main code <br>        
+      Reference: <b>UpdateData(), line 31</b></code> <br>
+      <blockquote>
+          Note: If you change some one value, others values not will be affected :)
+      </blockquote>
+      
+      <a class="waves-effect waves-light btn" onclick="UpdateData()"><i class="material-icons right">edit</i>UPDATE DATA</a>
+  </section>
+</div>
+
+<br><br>
+
+<div class="row">        
+    <section class="col s12 m6 l6">
+        <center>
+            <img src="./img/firestore-db/get-one-value.png" alt="SetData" width="80%">
+        </center>        
+    </section>
+    <section class="col s12 m6 l6">
+        <h5>Get An Unique Value</h5>
+        <code>The variables and programming is in the project, <br>
+            Review test-firestore.js in the main code <br>            
+            Reference: <b>GetUniqueValue(), line 46</b></code> <br>
+        <blockquote>
+            Note: You can change the route to the specific value in the code
+        </blockquote>
+        <a class="waves-effect waves-light btn" onclick="GetUniqueValue()"><i class="material-icons right">folder_special</i>GET UNIQUE DATA</a>
+        <a class="waves-effect waves-light btn" onclick="ClearUniqueData()"><i class="material-icons right">refresh</i>RERFESH DATA</a>
+        <br>
+        <h5 id="uniqueValue">The value appears here! :)</h5>
+    </section>
+</div>
+
+<div class="row">        
+    <section class="col s12 m6 l6">
+        <center>
+            <img src="./img/firestore-db/get-list.png" alt="SetData" width="80%">
+        </center>        
+    </section>
+    <section class="col s12 m6 l6">
+        <h5>Get Data List In A Table - RealTime</h5>
+        <code>The variables and programming is in the project, <br>
+            Review test-firestore.js in the main code <br>
+            Reference: <b>GetDataInTableRealTime(), line 62</b></code> <br>
+        <blockquote>
+            Note: The function have a .onSnapshot() method that calls the changes in realtime
+        </blockquote> 
+        <a class="waves-effect waves-light btn" onclick="GetDataInTableRealTime()"><i class="material-icons right">list</i>GET DATA LIST</a>        
+        <a class="waves-effect waves-light btn" onclick="ClearDataInTableRealTime()"><i class="material-icons right">refresh</i>RERFESH TABLE</a>
+        <br>
+        <h5>The values in table appears here! :)</h5>
+        <div id="divTableRealTime"></div>
+    </section>
+</div>
+
+<div class="row">        
+    <section class="col s12 m6 l6">
+        <center>
+            <img src="./img/firestore-db/get-list.png" alt="SetData" width="80%">
+        </center>        
+    </section>
+    <section class="col s12 m6 l6">
+        <h5>Get Data List In A Table - NO RealTime</h5>
+        <code>The variables and programming is in the project, <br>
+            Review test-firestore.js in the main code <br>
+            Reference: <b>GetDataInTableNoRealTime(), line 93</b></code> <br>
+        <blockquote>
+            Note: The function have a .get() method that DOESN'T calls the changes in realtime
+        </blockquote> 
+        <a class="waves-effect waves-light btn" onclick="GetDataInTableNoRealTime()"><i class="material-icons right">list</i>GET DATA LIST</a>        
+        <a class="waves-effect waves-light btn" onclick="ClearDataInTableNoRealTime()"><i class="material-icons right">refresh</i>RERFESH TABLE</a>
+        <br>
+        <h5>The values in table appears here! :)</h5>
+        <div id="divTableNoRealTime"></div>
+    </section>
+</div>
+
+    
+<div class="container-badge">
+    <div class="container-final" style="width: 40%;">
+        <section class="col s12 m6 l6 ">
+            <h5>Get Data List In Cards</h5>
+            <code>The variables and programming is in the project, <br>
+                Review test-firestore.js in the main code <br>            
+                Reference: <b>GetDataInCards(), line 125</b></code> <br>
+                <blockquote>
+                    Note: The cards are responsive, the properties in class are: s12 m6 l6 <br>
+                    Note2: The function have a .onSnapshot() method that calls the changes in realtime
+                </blockquote>
+            <a class="waves-effect waves-light btn" onclick="GetDataInCards()"><i class="material-icons right">list</i>GET DATA LIST</a>        
+            <a class="waves-effect waves-light btn" onclick="ClearDataInCards()"><i class="material-icons right">refresh</i>RERFESH CARDS</a>
+            <br>
+            <h5>The values in cards appears below! :)</h5>                
+        </section>
+    </div>
+</div>
+<div id="divCardsRealTime"></div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <script>
     window.onload=function(){
         // Your web app's Firebase configuration
@@ -88,7 +234,7 @@
     }
 </script>      
 <script src="js/app.js"></script>
-<script src="js/logged2.js"></script>
+<script src="js/test-firestore.js"></script>
 <!-- Materialize -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="js/init.js"></script>
