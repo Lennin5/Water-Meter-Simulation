@@ -37,3 +37,12 @@ body{
     border-radius: 20px !important;
     color: #fff !important
 }
+
+.btnScrollTopShow {
+    opacity: 1;
+    transition: opacity 0.3s linear;
+  }
+.btnScrollTopHide {
+    opacity: 0;
+    transition: opacity 0.3s linear;
+}
