@@ -1,117 +1,13 @@
+// ==============================================
+// ||                                          ||
+// ||                                          ||
+// ||                REALTIME DATABASE         ||
+// ||                                          ||
+// ||                                          ||
+// ==============================================
 
-function SetData(){
-    var uid = "user5"
-    var username = "Díaz";
-    var email = "d@gmail.com";
-  
-    firebase.database().ref('users/'+uid).set({
-      username: username,
-      email: email,    
-    }).then(response=>{      
-      console.log("document writed!");               
-    }).catch(error =>{
-      console.log(error);
-    });   
-  
-  }
-
-function GetDataDBRealTime(){
-    // OBTENER EL VALOR DE UN CAMPO EN ESPECÍFICO CON UNA RUTA ESPECÍFICA - DB REAL TIME
-    // var monthLitersConsumed = document.getElementById('monthLitersConsumed');
-    // var dbRef = firebase.database().ref("users/user1/").child('username');
-    // dbRef.on('value', snap => monthLitersConsumed.innerHTML = snap.val());
-
-    
-    // OBTENER UN ARRAY DE UN OBJETO Y PINTARLO EN CARDS RESPONSIVAS - DB REAL TIME
-    // var starCountRef = firebase.database().ref('users/');
-    // starCountRef.on('value', (snapshot) => {
-    //   var data = snapshot.val();
-    //   console.log(data);
-    //   var contenido ="<div class='row'>"         
-    //           for (let [key, value] of Object.entries(data)) {
-    //             contenido +="<div class='col s12 m6 l3'>"
-    //             contenido +="<div class='card'>"
-    //               contenido +="<div class='card-image'>"                   
-    //             contenido +="<img src='img/london.jpg' width='300' height='300' style='object-fit: cover'>"                
-    //         contenido +="<span class='card-title'>"+value.username+"</span>"
-    //       contenido +="</div>"
-    //       contenido +="<div class='card-content'>"
-    //         contenido +="<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>"
-    //       contenido +="</div>"
-    //       contenido +="<div class='card-action'>"
-    //         contenido +="<a href='#'>"+value.email+"</a>"
-    //         contenido +="</div>"
-    //         contenido +="</div>"
-    //       contenido +="</div>"            
-    //           }
-    // contenido +="</div>"
-    // document.getElementById("divTable").innerHTML = contenido;
-    // });
-    
-
-    // OBTENER UN ARRAY DE UN OBJETO Y PINTARLO EN UNA TABLA - DB REAL TIME
-    var starCountRef = firebase.database().ref('users/');
-    starCountRef.on('value', (snapshot) => {
-      var data = snapshot.val();
-      console.log(data);
-      var contenido ="<div class='container'>"         
-          contenido +="<table class='striped responsive-table'>"
-          contenido +="<thead>"
-            contenido +="<tr>"
-                contenido +="<th>Username</th>"
-                contenido +="<th>Email</th>"
-            contenido +="</tr>"
-          contenido +="</thead>"
-          contenido +="<tbody>"            
-              for (let [key, value] of Object.entries(data)) {
-                  contenido +="<tr>"      
-                    contenido +="<td>"+value.username+"</td>"
-                    contenido +="<td>"+value.email+"</td>"
-                  contenido +="</tr>"
-              }
-              contenido +="</tbody>"
-            contenido +="</table>"              
-          contenido +="</div>"
-    document.getElementById("divTable").innerHTML = contenido;
-    });
-
-
-
-    //   var contenido = "<table>"
-    //     contenido+="<thead>"
-    //   contenido+="<tr>"
-          
-    //       contenido+="<th>Username</th>"
-    //       contenido+="<th>Email</th>"
-
-    //   contenido+="</tr>"
-    //   contenido+="</thead>"
-
-    //   contenido+="<tbody>"      
-      
-    //   for (let [key, value] of Object.entries(data)) {
-
-    //     contenido+="<tr>"
-    //     contenido+="<td>"+value.username+"</td>"
-    //     contenido+="<td>"+value.email+"</td>"
-
-    //     console.log(value.username);
-
-    //   }
-
-    //   contenido+="</tbody>"
-    //   contenido+="</table>"
-    //   document.getElementById("divTable").innerHTML = contenido;
-    // });
-
-
-
-  }
-  
-  
-  // Inicializate App - Upload Simulation of Water
-  
-  var countdown_green = 10;
+// Inicializate App - Upload Simulation of Water
+  var countdown_green = 95;
   var countdown_blue = 10;
   var countdown_red = 10;
   var countdown_yellow = 10;
@@ -163,7 +59,7 @@ function GetDataDBRealTime(){
   }
   
   
-  // Send data to FIRESTORE
+  // Send data to REAL TIME DATABASE
   async function SendDataSensor01(){
     // sensor's name
     var sensorName = "Sensor01";
@@ -184,8 +80,6 @@ function GetDataDBRealTime(){
     var dateTime = getDate('dateTime');
     var timestamp = firebase.firestore.FieldValue.serverTimestamp();
   
-    // console.log();
-  
     // variables converted in string to route of push data
     var dayMonthYearString = day+"-"+month+"-"+year;
     var monthYearString = month+"-"+year;  
@@ -199,9 +93,8 @@ function GetDataDBRealTime(){
       
     
     // verify if user exists
-    var user = firebase.auth().currentUser;
-    var db = firebase.firestore();
-    var uid;    
+    var user = firebase.auth().currentUser;    
+    var uid;  
   
     if (user != null) {
       uid = user.uid;      
@@ -209,55 +102,38 @@ function GetDataDBRealTime(){
 
 
       // GET liters of water of Month to sum
-      await db.collection(uid).doc("Water_Consumption_Data").collection("Months").doc(monthYearString).get()
-      .then(response=>{      
-          var document = response.data();      
-          monthLitersConsumed = document.Month_Liters_Consumed;           
-      }).catch(error =>{
-        // console.log(error); // ERROR DISABLED XD
-      });
+      await firebase.database().ref(uid+"/Water_Consumption_Data/Months/"+monthYearString).child('Month_Liters_Consumed')
+      .on('value', snap => monthLitersConsumed = snap.val());
       // GET liters of water of Year to sum
-      await db.collection(uid).doc("Water_Consumption_Data").collection("Years").doc(yearString).get()
-      .then(response=>{      
-          var document = response.data();      
-          yearLitersConsumed = document.Year_Liters_Consumed;           
-      }).catch(error =>{
-        // console.log(error); // ERROR DISABLED XD
-      });    
+      await firebase.database().ref(uid+"/Water_Consumption_Data/Years/"+yearString).child('Year_Liters_Consumed')
+      .on('value', snap => yearLitersConsumed = snap.val());
+
+      // ---------------------------------------------------------
       
-        await firebase.database().ref(uid+'/Water_Consumption_Data/Days/'+dayMonthYearString).set({
+        // Set data of day of consumption
+        await firebase.database().ref(uid+"/Water_Consumption_Data/Days/"+dayMonthYearString).set({        
             Day: day,
             Day_Of_Week_In_Letter: dayOfWeekInLetter,
             Liters_Consumed: actualLitersOfConsumption,
             Month: month,
             Month_In_Letter: monthInLetter,
-            Timestamp: timestamp,
+            Timestamp: firebase.database.ServerValue.TIMESTAMP,
             Today: today,    
-        })      
-        // Set data of day of consumption
-        await db.collection(uid).doc("Water_Consumption_Data").collection("Days").doc(dayMonthYearString).set({
-          Day: day,
-          Day_Of_Week_In_Letter: dayOfWeekInLetter,
-          Liters_Consumed: actualLitersOfConsumption,
-          Month: month,
-          Month_In_Letter: monthInLetter,
-          Timestamp: timestamp,
-          Today: today,        
-        })
+        })              
         // Set data of "X" sensor data of consumption
-        await db.collection(uid).doc("Water_Consumption_Data").collection("Days").doc(dayMonthYearString).collection("Sensors").doc(sensorName).set({
+        await firebase.database().ref(uid+"/Water_Consumption_Data/Days/"+dayMonthYearString+"/Sensors/"+sensorName).set({            
           Liters_Consumed: actualLitersOfConsumption,
           Sensor_Name: sensorName
         })      
         // Set data of month of consumption
-        await db.collection(uid).doc("Water_Consumption_Data").collection("Months").doc(monthYearString).set({
+        await firebase.database().ref(uid+"/Water_Consumption_Data/Months/"+monthYearString).set({
           Month: month,
           Month_In_Leter: monthInLetter,
           Month_Liters_Consumed: actualLitersOfConsumption + monthLitersConsumed,
           Year: year
         })
         // Set data of year of consumption
-        await db.collection(uid).doc("Water_Consumption_Data").collection("Years").doc(yearString).set({
+        await firebase.database().ref(uid+"/Water_Consumption_Data/Years/"+yearString).set({        
           Year: year,
           Year_Liters_Consumed: actualLitersOfConsumption + yearLitersConsumed
         })      

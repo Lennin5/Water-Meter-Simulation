@@ -23,10 +23,10 @@ window.addEventListener("scroll", (event) => {
 var scrollToTopBtn = document.getElementById("scrollToTopBtn");
 var rootElement = document.documentElement
 function scrollToTop() {
-// Scroll to top logic
-rootElement.scrollTo({
-  top: 0,
-  behavior: "smooth"
-})
+  // Scroll to top logic
+  rootElement.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  })
 }
-scrollToTopBtn.addEventListener("click", scrollToTop)
+scrollToTopBtn.addEventListener("click", scrollToTop);

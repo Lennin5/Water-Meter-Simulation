@@ -46,3 +46,41 @@ body{
     opacity: 0;
     transition: opacity 0.3s linear;
 }
+
+
+
+
+
+
+
+
+
+/* .test{
+    background-color: #D2C4F3;
+    border-radius: 35px;
+    color: #2D164A;
+    padding: 5px;
+
+    width: 10%;
+    height: 50%;
+
+    display: flex; justify-content: center;
+    border: 2px solid red; padding: 5px;
+    
+    -webkit-box-shadow:  5px 5px 8px 0px #a5a5a5c7;
+    -moz-box-shadow:  5px 5px 8px 0px #a5a5a5c7;
+    -o-box-shadow: 5px 5px 8px 0px #a5a5a5c7;
+    -ms-box-shadow: 5px 5px 8px 0px #a5a5a5c7;
+
+    
+}
+
+.zoom-effect{
+    transition: 400ms all;
+    position: relative;
+    cursor: pointer;
+}
+.zoom-effect:hover {
+    transform: scale(0.9);
+    opacity: 1;
+} */

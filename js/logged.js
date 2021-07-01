@@ -1,5 +1,12 @@
+// ==============================================
+// ||                                          ||
+// ||                                          ||
+// ||                FIRESTORE                 ||
+// ||                                          ||
+// ||                                          ||
+// ==============================================
 
-// Inicializate App - Upload Simulation of Water
+// Inicializate App - Upload Simulation of Water 
 
 var countdown_green = 10;
 var countdown_blue = 10;

@@ -19,6 +19,8 @@
 </head>
 
 <body>
+
+  
 <div class="nabvar-fixed">
   <nav class="nav-extended teal">
     <div class="nav-wrapper">
@@ -171,7 +173,7 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 
-    firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     var displayName = user.displayName;
     var email = user.email;
@@ -186,7 +188,7 @@
     window.location.href="./index.html";     
   }
   });    
-    }
+}
 </script>      
 <script src="js/app.js"></script>
 <script src="js/logged2.js"></script>
