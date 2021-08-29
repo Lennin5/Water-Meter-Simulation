@@ -33,3 +33,5 @@ function GetDataInTableRealTime(){
     document.getElementById("divComments").innerHTML = contenido;  
     }); 
 }
+
+

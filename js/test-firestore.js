@@ -1,11 +1,12 @@
 function SetData(){
-    var uid = "user1"
+    var uid = "user"
     var username = "Lennin";
     var email = "l@gmail.com";
   
     firebase.firestore().collection("users").doc(uid).set({
         username: username,
         email: email,        
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(), 
     }).then(response=>{
         console.log("document setted in firestore database!");          
     }).catch(error=>{
@@ -20,6 +21,7 @@ function AddData(){
     firebase.firestore().collection("users").add({
         username: username,
         email: email,        
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     }).then(response=>{        
         console.log("document added in firestore database!");          
         console.log(response.id); // ID from document created with ADD in firestore
@@ -35,7 +37,7 @@ function UpdateData(){
   
     firebase.firestore().collection("users").doc(uid).update({
         username: username,
-        email: email,        
+        email: email,
     }).then(response=>{
         console.log("document has been updated!");          
     }).catch(error=>{
@@ -59,8 +61,11 @@ function ClearUniqueData(){
     document.getElementById('uniqueValue').innerHTML = "The value appears here! :)";
 }
 
-function GetDataInTableRealTime(){
-    firebase.firestore().collection("users")
+function GetDataInTableRealTime(){    
+    // Siempre y cuando se agregue el campo "timestamo" en los registros subidos
+    // Mostrar listado de forma ascendiente "asc" (el último registro residtrado será el último)
+    // Mostrar listado de forma descendiente "desc" (el úlimo registro registrado será el primero)                  
+    firebase.firestore().collection("users").orderBy("timestamp", "desc")
     .onSnapshot(doc=>{ 
         var contenido ="<div class='container'>"         
         contenido +="<table class='striped responsive-table'>"

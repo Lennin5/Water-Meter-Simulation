@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Function that listen the scroll in axis Y
 window.addEventListener("scroll", (event) => {
   let scroll = this.scrollY;
-  console.log(scroll);
+  // console.log(scroll);
   if (scroll >= 100) {
     document.getElementById("btnScrollTop").classList.add("btnScrollTopShow");
     document.getElementById("btnScrollTop").classList.remove("btnScrollTopHide");

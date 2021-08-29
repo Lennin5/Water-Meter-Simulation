@@ -16,6 +16,8 @@
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -42,8 +44,10 @@
   </nav>  
 </div>  
 
-<br><br>
-              
+<br><br>            
+
+<button id="btn-odoo">Button Odoo</button>
+
 
 <div id="divComments">
   <section style="display: flex; justify-content: center; align-items: flex-end;" class="container">
@@ -57,6 +61,27 @@
 </div> 
 
 <script>
+  function HelloOdoo(){
+    alert("Hello Odoo!");
+    
+  }
+
+  elemento = document.getElementById("btn-odoo");
+  localStorage.setItem("modalAbierto", false);
+
+  $(elemento).on("HelloOdoo()", function(){
+    localStorage.setItem("modalAbierto", true);
+  })
+
+  function abrirModal()
+  {    
+
+    if(!localStorage.getItem("modalAbierto"))
+    {
+        abrirModal()
+    }
+  } 
+
     window.onload=function(){
         // Your web app's Firebase configuration
         var firebaseConfig = {
@@ -87,6 +112,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     window.location.href="./index.html";     
   }
   });    
+
+
 }
 </script>      
 <script src="js/app.js"></script>
