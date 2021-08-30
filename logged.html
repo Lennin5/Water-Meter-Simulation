@@ -30,13 +30,13 @@
         <li><a href="./test-realtime.html"><i class="material-icons right">dns</i>Test RealTime DB</a></li>
         <li><a href="./test-firestore.html"><i class="material-icons right">expand_less</i>Test Firestore DB</a></li>
         <li><a href="./comments.html"><i class="material-icons right">comments</i>Comments</a></li>        
-        <li><a href="#" onclick="Logout()"><i class="material-icons right">logout</i>Close Session</a></li>
+        <li><a href="./test-room.html"><i class="material-icons right">code</i>Testing Room</a></li>
       </ul>
     </div>
     <div class="nav-content" style="padding-bottom: 10px;">
       <!-- <span style="margin-left: 5px;">Sensor Simulation</span>       -->
-      <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal lighten-1" href="./logged.html" title="Refresh">
-        <i class="material-icons">refresh</i>
+      <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal lighten-1" title="Close Session">
+        <i class="material-icons" onclick="Logout()">logout</i>
       </a>
     </div>
   </nav>  
@@ -93,7 +93,7 @@
                 <div><b id="countdown-blue"></b></div>
               </section>
               <br>                          
-              <a class="waves-effect waves-light btn blue accent-2 water-btn">
+              <a class="waves-effect waves-light btn blue accent-2 water-btn" onclick="M.toast({html: 'SEND DATA BLUE has not been programmed!'})">
                 <i class="material-icons right">cloud</i>SEND DATA</a>
             </center> 
           </div>           
@@ -120,7 +120,7 @@
                 <div><b id="countdown-red"></b></div>
               </section>
               <br>                           
-              <a class="waves-effect waves-light btn red accent-2 water-btn">
+              <a class="waves-effect waves-light btn red accent-2 water-btn" onclick="M.toast({html: 'SEND DATA RED has not been programmed!'})">
                 <i class="material-icons right">cloud</i>SEND DATA</a>
             </center> 
           </div>           
@@ -147,7 +147,7 @@
                 <div><b id="countdown-yellow"></b></div>
               </section>
               <br>            
-              <a class="waves-effect waves-light btn yellow darken-1 water-btn">
+              <a class="waves-effect waves-light btn yellow darken-1 water-btn" onclick="M.toast({html: 'SEND DATA YELLOW has not been programmed!'})">
                 <i class="material-icons right">cloud</i>SEND DATA</a>
             </center> 
           </div>          

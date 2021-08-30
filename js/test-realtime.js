@@ -26,8 +26,6 @@ function ClearUniqueData(){
 }
 
 function GetDataInTable(){
-
-
     // OBTENER UN ARRAY DE UN OBJETO Y PINTARLO EN UNA TABLA - DB REAL TIME <<<TRAER PRIMERO LOS ULTIMOS DATOS REGISTRADOS>>>
     firebase.database().ref('users')
     .on('value', (snapshot) => {

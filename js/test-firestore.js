@@ -74,6 +74,7 @@ function GetDataInTableRealTime(){
           contenido +="<th>Uid</th>"
               contenido +="<th>Username</th>"
               contenido +="<th>Email</th>"
+              contenido +="<th>Timestamp</th>"
           contenido +="</tr>"
         contenido +="</thead>"
         contenido +="<tbody>"           
@@ -83,6 +84,7 @@ function GetDataInTableRealTime(){
             contenido +="<td>"+response.id+"</td>"
             contenido +="<td>"+user.username+"</td>"
             contenido +="<td>"+user.email+"</td>"
+            contenido +="<td>"+user.timestamp+"</td>"
           contenido +="</tr>" 
         }); 
         contenido +="</tbody>"

@@ -21,30 +21,31 @@
 <body bgcolor="#f6f7f9">
 <!-- Button to go to Top in the page -->
 <div class="fixed-action-btn btnScrollTopHide" id="btnScrollTop">
-    <a class="btn-floating btn-large teal" id="scrollToTopBtn">
+    <a class="btn-floating btn-large teal pulse" id="scrollToTopBtn">
         <i class="large material-icons">arrow_upward</i>
     </a>
 </div>
 
 <div class="nabvar-fixed">
-  <nav class="nav-extended teal">
+    <nav class="nav-extended teal">
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo" style="margin-left: 5px;">Water Meter System</a>
-      <ul class="right hide-on-med-and-down">        
+        <a href="#!" class="brand-logo" style="margin-left: 5px;">Water Meter System</a>
+        <ul class="right hide-on-med-and-down">        
         <li><a href="./logged.html"><i class="material-icons right">settings_remote</i>Sensors Simulation</a></li>
         <li><a href="./test-realtime.html" style="background-color: #00796b;"><i class="material-icons right">dns</i>Test RealTime DB</a></li>
         <li><a href="./test-firestore.html"><i class="material-icons right">expand_less</i>Test Firestore DB</a></li>
         <li><a href="./comments.html"><i class="material-icons right">comments</i>Comments</a></li>        
-        <li><a href="#" onclick="Logout()"><i class="material-icons right">logout</i>Close Session</a></li>
-      </ul>
+        <li><a href="./test-room.html"><i class="material-icons right">code</i>Testing Room</a></li>
+        </ul>
     </div>
-    <div class="nav-content" style="padding-bottom: 10px;">        
-      <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal lighten-1" href="./test-realtime.html" title="Refresh">
-        <i class="material-icons">refresh</i>
-      </a>
+    <div class="nav-content" style="padding-bottom: 10px;">
+        <!-- <span style="margin-left: 5px;">Sensor Simulation</span>       -->
+        <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal lighten-1" title="Close Session">
+        <i class="material-icons" onclick="Logout()">logout</i>
+        </a>
     </div>
-  </nav>  
-</div>  
+    </nav>  
+</div> 
 
 <br>
 

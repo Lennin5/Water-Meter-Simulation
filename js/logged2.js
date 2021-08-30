@@ -139,6 +139,7 @@
         })      
         .then(() => {
             console.log("Document successfully written in day, month and year!");
+            M.toast({html: 'Document successfully written in day, month and year!'})
         })
         .catch((error) => {
             console.error("Error writing document: ", error);
